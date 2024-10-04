@@ -10,11 +10,11 @@ fun main() {
         Netty,
         port = 8080,
         host = "0.0.0.0",
-        module = Application::module)
+        module = Application::rootModule)
         .start(wait = true)
 }
 
-fun Application.module() {
+fun Application.rootModule() {
     configureSerialization()
     configureHTTP()
     configureRouting()

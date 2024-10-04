@@ -23,7 +23,7 @@ fun Route.userRoutes(userRepository: UserRepository) {
             val user = userRepository.findById(id)
                 ?: return@get call.respond(HttpStatusCode.NotFound)
 
-            call.respond(user)
+            call.respond(status = HttpStatusCode.OK, message = user)
         }
 
         post {

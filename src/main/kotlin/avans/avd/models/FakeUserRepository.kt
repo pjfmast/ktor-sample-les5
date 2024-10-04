@@ -18,11 +18,14 @@ object FakeUserRepository : UserRepository {
     }
 
 
-    override suspend fun findByUsername(username: String): User? = users.find { it.username == username }
+    override suspend fun findByUsername(username: String): User?
+    = users.find { it.username == username }
 
-    override suspend fun findAll(): List<User> = users.toList()
+    override suspend fun findAll(): List<User>
+    = users.toList()
 
-    override suspend fun findById(id: Long): User? = users.find { it.id == id }
+    override suspend fun findById(id: Long): User?
+    = users.find { it.id == id }
 
 
     override suspend fun create(entity: User): User {
@@ -39,6 +42,7 @@ object FakeUserRepository : UserRepository {
         users.add(entity)
     }
 
-    override suspend fun delete(id: Long): Boolean = users.removeIf { it.id == id }
+    override suspend fun delete(id: Long): Boolean
+    = users.removeIf { it.id == id }
 
 }
